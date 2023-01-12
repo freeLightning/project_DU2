@@ -18,7 +18,10 @@ function click_filter_element (event) {
     NO RETURN VALUE
 
   */
-  
+  const click_filter_dom = event.currentTarget;
+  click_filter_dom.classList.toggle("selected");
+
+  update_programmes();
 }
 
 
@@ -96,6 +99,7 @@ function toggle_cities (event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters () {
+
   function create_country (country) {
     const dom = document.createElement("div");
     dom.classList.add("country");
