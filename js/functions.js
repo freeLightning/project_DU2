@@ -18,8 +18,8 @@ function click_filter_element (event) {
     NO RETURN VALUE
 
   */
-  const filter_dom = event.currentTarget;
-  filter_dom.classList.toggle("selected");
+  const click_filter_dom = event.currentTarget;
+  click_filter_dom.classList.toggle("selected");
 
   update_programmes();
 }
