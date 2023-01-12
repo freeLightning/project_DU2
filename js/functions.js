@@ -96,7 +96,42 @@ function toggle_cities (event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters () {
+/*
+
+    ARGUMENTS
+      This function does not take any arguments.
+
+    SIDE EFFECTS
+      This function creates country and city filters?
+      checks the state of the first city-filter-element (Madrid).
+      If it is selected then it de-selects ALL city-filter-elements
+      If it is de-selected then it selects ALL city-filter-elements 
+
+    NO RETURN VALUE
+
+  */
+
   function create_country (country) {
+  /*
+
+    ARGUMENTS
+      Function reseves one parameter that must be an object(country) containing two arrays, country and cities.
+      Both arrays containing country with the key id.
+
+    SIDE EFFECTS
+      A div is created with class country ans filter_container. Id is set to #country_ + country.id.value.
+      The created div is then appended to the parent (ul with id "country_filter").
+
+      A h1 is created with inner HTML and textcontent is set to the value of the key country.name.
+      An unsorted list (ul) is created with inner HTML and the class "filter_list".
+      
+      
+      If it is selected then it de-selects ALL city-filter-elements
+      If it is de-selected then it selects ALL city-filter-elements 
+
+    NO RETURN VALUE
+
+  */
     const dom = document.createElement("div");
     dom.classList.add("country");
     dom.classList.add("filter_container");
@@ -116,6 +151,19 @@ function create_countries_cities_filters () {
     array_each(cities, create_city);
   }
   function create_city (city) {
+  /*
+
+    ARGUMENTS
+      This function does not take any arguments
+
+    SIDE EFFECTS
+      This function checks the state of the first city-filter-element (Madrid).
+      If it is selected then it de-selects ALL city-filter-elements
+      If it is de-selected then it selects ALL city-filter-elements 
+
+    NO RETURN VALUE
+
+  */
 
     const dom = create_filter_element({
       parent: document.querySelector(`#country_${city.countryID} > ul`),
