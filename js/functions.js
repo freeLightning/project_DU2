@@ -102,10 +102,17 @@ function create_countries_cities_filters () {
       This function does not take any arguments.
 
     SIDE EFFECTS
-      This function creates country and city filters?
-      checks the state of the first city-filter-element (Madrid).
-      If it is selected then it de-selects ALL city-filter-elements
-      If it is de-selected then it selects ALL city-filter-elements 
+      The function array_each is called with two arguments (the array COUNTRIES and the function "create_country").
+      array_each loops through each element in the array COUNTRIES and compares if the key value countryID in CITIES is the same as country.id in COUNTRY.
+      If true a div element is created, set with classes "country" and "filter_container. Then appended to the ul parent with id "country_filter".
+
+      A h1 inner HTML element is created and textcontent is set to the value of the key country.name.
+      An unsorted list (ul) is created with inner HTML and the class "filter_list" is added.
+
+      Finally the function create_city is called with the object key.city from array cities as an argument.
+      The function creates a new dom-element and append it to a ul parent that has the id "country_ + city.countryiD".
+      Gives the new dom-element (li) the class "selected" and sets the textcontent to teh value of city.name.
+      Sets dataset.id to city.id.
 
     NO RETURN VALUE
 
@@ -115,7 +122,7 @@ function create_countries_cities_filters () {
   /*
 
     ARGUMENTS
-      Function reseves one parameter that must be an object(country) containing two arrays, country and cities.
+      Function receives one argument that must be an object(from the array COUNTRIES) containing two arrays, country and cities.
       Both arrays containing country with the key id.
 
     SIDE EFFECTS
