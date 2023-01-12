@@ -217,6 +217,12 @@ function update_programmes () {
 
   */
 
+      function show_country_info (event_object) {
+
+        function test_function (object) {
+          return object.country === country_name;
+        }
+      }
 }
 
 
