@@ -99,20 +99,20 @@ function create_countries_cities_filters () {
 /*
 
     ARGUMENTS
-      This function does not take any arguments.
+      This function does not take any arguments
 
     SIDE EFFECTS
-      The function array_each is called with two arguments (the array COUNTRIES and the function "create_country").
-      array_each loops through each element in the array COUNTRIES and compares if the key value countryID in CITIES is the same as country.id in COUNTRY.
-      If true a div element is created, set with classes "country" and "filter_container. Then appended to the ul parent with id "country_filter".
+      The function array_each is called with two arguments (the array COUNTRIES and the function "create_country")
+      array_each loops through each element in the array COUNTRIES and compares if the key value countryID in CITIES is the same as country.id in COUNTRY
+      If true a div element is created, set with classes "country" and "filter_container. Then appended to the ul parent with id "country_filter"
 
-      A h1 inner HTML element is created and textcontent is set to the value of the key country.name.
-      An unsorted list (ul) is created with inner HTML and the class "filter_list" is added.
+      A h1 inner HTML element is created and textcontent is set to the value of the key country.name
+      An unsorted list (ul) is created with inner HTML and the class "filter_list" is added
 
-      Finally the function create_city is called with the object key.city from array cities as an argument.
-      The function creates a new dom-element and append it to a ul parent that has the id "country_ + city.countryiD".
-      Gives the new dom-element (li) the class "selected" and sets the textcontent to teh value of city.name.
-      Sets dataset.id to city.id.
+      Finally the function create_city is called with the object key.city from array cities as an argument
+      The function creates a new dom-element and append it to a ul parent that has the id "country_ + city.countryiD"
+      Gives the new dom-element (li) the class "selected" and sets the textcontent to the value of city.name
+      Sets dataset.id to city.id
 
     NO RETURN VALUE
 
@@ -122,21 +122,21 @@ function create_countries_cities_filters () {
   /*
 
     ARGUMENTS
-      Function receives one argument that must be an object(from the array COUNTRIES) containing two arrays, country and cities.
-      Both arrays containing country with the key id.
+      Function receives an object as an argument (from the array COUNTRIES) containing two arrays, country and cities
+      Both arrays containing country with the key id
 
     SIDE EFFECTS
-      A div is created with class country ans filter_container. Id is set to #country_ + country.id.value.
-      The created div is then appended to the parent (ul with id "country_filter").
+      A div is created with the two classes "country" and "filter_container". Id is set to #country_ + country.id.value
+      The created div is then appended to the parent (ul with id "country_filter")
 
-      A h1 is created with inner HTML and textcontent is set to the value of the key country.name.
-      An unsorted list (ul) is created with inner HTML and the class "filter_list".
+      A h1 element is created with inner HTML and textcontent is set to the value of the key country.name
+      An unsorted list (ul) is created with inner HTML and the class "filter_list"
       
-      The function array_filter is called with two arguments, object CITIES and the function "test_function".
-      array_filter returns a new array with all the elements in array that satisfy the test_function.
-      In this case if the value of city countryID is the same as country.id.
+      The function array_filter is called with two arguments, object CITIES and the callback function "test_function"
+      array_filter returns a new array with all the elements in array that satisfy the test_function
+      In this case if the value of city countryID is the same as country.id
       
-      The function array_each is called with two arguments, the new array and the function "create_city".
+      The function array_each is called with two arguments, the new array and callbackfunction "create_city"
 
     NO RETURN VALUE
 
@@ -163,12 +163,13 @@ function create_countries_cities_filters () {
   /*
 
     ARGUMENTS
-      This function does not take any arguments
+      The funktion is called from the function array_each with the arguments object key.city from array cities and callback "create_city". 
 
     SIDE EFFECTS
-      This function checks the state of the first city-filter-element (Madrid).
-      If it is selected then it de-selects ALL city-filter-elements
-      If it is de-selected then it selects ALL city-filter-elements 
+      This function creates a new dom-element (li) and gives it the parent "#country_${city.countryID} > ul"
+      The function creates a new dom-element and append it to a ul parent that has the id "country_ + city.countryiD"
+      Gives the new dom-element (li) the class "selected" and sets the textcontent to the value of city.name
+      Sets dataset.id to city.id
 
     NO RETURN VALUE
 
