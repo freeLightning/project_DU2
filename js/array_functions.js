@@ -1,4 +1,4 @@
-
+"use strict";
 
 function array_find (array, test_function) {
   // Returns the first element in array that satisfies
