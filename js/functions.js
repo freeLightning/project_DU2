@@ -125,9 +125,11 @@ function create_countries_cities_filters () {
       A h1 is created with inner HTML and textcontent is set to the value of the key country.name.
       An unsorted list (ul) is created with inner HTML and the class "filter_list".
       
+      The function array_filter is called with two arguments, object CITIES and the function "test_function".
+      array_filter returns a new array with all the elements in array that satisfy the test_function.
+      In this case if the value of city countryID is the same as country.id.
       
-      If it is selected then it de-selects ALL city-filter-elements
-      If it is de-selected then it selects ALL city-filter-elements 
+      The function array_each is called with two arguments, the new array and the function "create_city".
 
     NO RETURN VALUE
 
