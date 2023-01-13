@@ -375,7 +375,6 @@ function create_programme (programme) {
 // G
 // CODE according to the specification
 function update_programmes () {
-
   /*
       NO ARGUMENTS
 
@@ -418,27 +417,48 @@ function update_programmes () {
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
 function read_filters () {
-  
-  const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
+ /*  
+  NO ARGUMENTS
 
+  NO SIDE EFFECTS
+
+  RETURN VALUE
+  This function returnes array that match the selected filters.
+  */
+
+  //
+  const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
   const city_id_selected = [];
+
   function callback_add_cityID (dom_element) {
+  /*  
+  ARGUMENTS
+  A dom element (city_selected_dom) wich incluedes all li element with id "country_filter" and classname selected.
+  If university city id are the same as city id the element is added.
+  
+  SIDE EFFECTS
+  array_each loops throug every element in city_selected_dom. If true the the city is added to the array city_id_selected
+
+  NO RETURN VALUE
+  */
     const id_as_integer = parseInt(dom_element.dataset.id);
     city_id_selected.push(id_as_integer);
   }
   array_each(city_selected_dom, callback_add_cityID);
 
+// Adds all the universities that has the same city_id as city_id_selected
   const universities = [];
   for (let i = 0; i < city_id_selected.length; i++) {
     const city_id = city_id_selected[i];
-    for (let ii = 0; ii < UNIVERSITIES.length; ii++) {
-      const university = UNIVERSITIES[ii];
+    for (let i = 0; i < UNIVERSITIES.length; i++) {
+      const university = UNIVERSITIES[i];
       if (university.cityID === city_id) {
         universities.push(university);
       }
     }
   }
 
+//
   let programmes = [];
   function callback_add_programmes (university) {
     const university_id = university.id;
@@ -452,7 +472,7 @@ function read_filters () {
   array_each(universities, callback_add_programmes);
 
 
-
+//
   const level_selected_dom = document.querySelectorAll("#level_filter li.selected");
   const level_id_selected = [];
   function callback_add_levelID (dom_element) {
@@ -461,13 +481,15 @@ function read_filters () {
   }
   array_each(level_selected_dom, callback_add_levelID);
 
+
+//
   function test_function_level (programme) {
     return level_id_selected.includes(programme.levelID);
   }
   programmes = array_filter(programmes, test_function_level);
 
 
-
+//
   const language_selected_dom = document.querySelectorAll("#language_filter li.selected");
   const language_id_selected = [];
   function callback_add_languageID (dom_element) {
@@ -477,14 +499,14 @@ function read_filters () {
   array_each(language_selected_dom, callback_add_languageID);
 
 
-
+//
   function test_function_language (programme) {
     return language_id_selected.includes(programme.languageID);
   }
   programmes = array_filter(programmes, test_function_language);
 
 
-
+//
   const subject_selected_dom = document.querySelectorAll("#subject_filter li.selected");
   const subject_id_selected = [];
   function callback_add_subjectID (dom_element) {
@@ -494,14 +516,14 @@ function read_filters () {
   array_each(subject_selected_dom, callback_add_subjectID);
 
 
-
+//
   function test_function_subject (programme) {
     return subject_id_selected.includes(programme.subjectID);
   }
   programmes = array_filter(programmes, test_function_subject);
 
 
-
+//
   const search_string = document.querySelector("#search_field input").value;
   if (search_string !== "") {
     function test_function (programme) {
