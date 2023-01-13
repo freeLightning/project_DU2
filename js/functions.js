@@ -231,15 +231,15 @@ function create_filter_dom (data) {
     dom.dataset.id = data.id;
 }
 
-<<<<<<< HEAD
+
 array_each(LEVELS, create_level);
 array_each(LANGUAGES, create_element);
 array_each(SUBJECTS, create_subject);
   
 
-=======
-//AATENTION! NOT function propperly - ALL of the objects are displayed!
->>>>>>> function_create_programme
+
+
+//! NOT function propperly - ALL of the objects are displayed!
 // G / VG (see details in specification)
 // CODE according to specifications
 function create_programme (programme) {
