@@ -170,7 +170,7 @@ function create_language_filter () {
   array_each(LANGUAGES, create_element);
 }
 
-
+//AATENTION! NOT function propperly - ALL of the objects are displayed!
 // G / VG (see details in specification)
 // CODE according to specifications
 function create_programme (programme) {
@@ -196,54 +196,30 @@ function create_programme (programme) {
 
   */  
   
-    // ALLA object i arrayen inkl nycklar
+    // ALL objects.keys in the array
+    
+function create_programme (object) {
+  let i = 0;
+  while (i < 1) {
     for (let key in PROGRAMMES) {
       let heja = (key, PROGRAMMES[key]);
-      console.log(heja); //värdet som nyckeln har
-    } 
-    if ( object.name === heja.name){
-      document.body.innerHTML +=`<div>${heja}</div>`;
-    }
-     // ALLA object i arrayen inkl nycklar
-   /*  let i = 0;
-    while (i < 1) {
-    for (let key in PROGRAMMES) {
-        let heja = (key, PROGRAMMES[key]);
-        let allaProgramNycklar = [{}];
-              allaProgramNycklar.id = heja.id;
-              allaProgramNycklar.entryGrades = heja.entryGrades;
-              allaProgramNycklar.exchangeStudents = heja.exchangeStudents;
-              allaProgramNycklar.languageID = heja.languageID;
-              allaProgramNycklar.levelID = heja.levelID;
-              allaProgramNycklar.localStudents = heja.localStudents;
-              allaProgramNycklar.name = heja.name;
-              allaProgramNycklar.subjectID = heja.subjectID;
-              allaProgramNycklar.successRate = heja.successRate;
-              allaProgramNycklar.universityID = heja.universityID;
-    }
+      let allaProgramNycklar = [{}];
+      allaProgramNycklar.id = heja.id;
+      allaProgramNycklar.entryGrades = heja.entryGrades;
+      allaProgramNycklar.exchangeStudents = heja.exchangeStudents;
+      allaProgramNycklar.languageID = heja.languageID;
+      allaProgramNycklar.levelID = heja.levelID;
+      allaProgramNycklar.localStudents = heja.localStudents;
+      allaProgramNycklar.name = heja.name;
+      allaProgramNycklar.subjectID = heja.subjectID;
+      allaProgramNycklar.successRate = heja.successRate;
+      allaProgramNycklar.universityID = heja.universityID;
+          
+      document.body.innerHTML +=`<div>${heja}</div>`;   
+      }
+  } 
+  array_each(PROGRAMMES, create_programme);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // G
