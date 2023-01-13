@@ -196,7 +196,38 @@ function create_programme (programme) {
 
   */  
 
+  function programme (object) {
+  
+    // ALLA object i arrayen inkl nycklar
+    for (let key in PROGRAMMES) {
+      let heja = (key, PROGRAMMES[key]);
+      console.log(heja); //värdet som nyckeln har
+    } 
+    if ( object.name === heja.name){
+      document.body.innerHTML +=`<div>${heja}</div>`;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // G
