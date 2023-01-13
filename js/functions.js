@@ -231,11 +231,15 @@ function create_filter_dom (data) {
     dom.dataset.id = data.id;
 }
 
+<<<<<<< HEAD
 array_each(LEVELS, create_level);
 array_each(LANGUAGES, create_element);
 array_each(SUBJECTS, create_subject);
   
 
+=======
+//AATENTION! NOT function propperly - ALL of the objects are displayed!
+>>>>>>> function_create_programme
 // G / VG (see details in specification)
 // CODE according to specifications
 function create_programme (programme) {
@@ -260,7 +264,30 @@ function create_programme (programme) {
     NO RETURN VALUE
 
   */  
-
+  
+    // ALL objects.keys in the array
+    
+function create_programme (object) {
+  let i = 0;
+  while (i < 1) {
+    for (let key in PROGRAMMES) {
+      let heja = (key, PROGRAMMES[key]);
+      let allaProgramNycklar = [{}];
+      allaProgramNycklar.id = heja.id;
+      allaProgramNycklar.entryGrades = heja.entryGrades;
+      allaProgramNycklar.exchangeStudents = heja.exchangeStudents;
+      allaProgramNycklar.languageID = heja.languageID;
+      allaProgramNycklar.levelID = heja.levelID;
+      allaProgramNycklar.localStudents = heja.localStudents;
+      allaProgramNycklar.name = heja.name;
+      allaProgramNycklar.subjectID = heja.subjectID;
+      allaProgramNycklar.successRate = heja.successRate;
+      allaProgramNycklar.universityID = heja.universityID;
+          
+      document.body.innerHTML +=`<div>${heja}</div>`;   
+      }
+  } 
+  array_each(PROGRAMMES, create_programme);
 }
 
 
