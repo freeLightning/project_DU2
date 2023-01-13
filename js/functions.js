@@ -231,6 +231,10 @@ function create_filter_dom (data) {
     dom.dataset.id = data.id;
 }
 
+array_each(LEVELS, create_level);
+array_each(LANGUAGES, create_element);
+array_each(SUBJECTS, create_subject);
+  
 
 array_each(LEVELS, create_filter_dom);
 array_each(LANGUAGES, create_filter_dom);
