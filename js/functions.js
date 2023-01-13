@@ -204,6 +204,23 @@ function create_programme (programme) {
     if ( object.name === heja.name){
       document.body.innerHTML +=`<div>${heja}</div>`;
     }
+     // ALLA object i arrayen inkl nycklar
+   /*  let i = 0;
+    while (i < 1) {
+    for (let key in PROGRAMMES) {
+        let heja = (key, PROGRAMMES[key]);
+        let allaProgramNycklar = [{}];
+              allaProgramNycklar.id = heja.id;
+              allaProgramNycklar.entryGrades = heja.entryGrades;
+              allaProgramNycklar.exchangeStudents = heja.exchangeStudents;
+              allaProgramNycklar.languageID = heja.languageID;
+              allaProgramNycklar.levelID = heja.levelID;
+              allaProgramNycklar.localStudents = heja.localStudents;
+              allaProgramNycklar.name = heja.name;
+              allaProgramNycklar.subjectID = heja.subjectID;
+              allaProgramNycklar.successRate = heja.successRate;
+              allaProgramNycklar.universityID = heja.universityID;
+    }
 }
 
 
