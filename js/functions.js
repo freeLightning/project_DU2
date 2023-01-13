@@ -203,42 +203,38 @@ function create_countries_cities_filters () {
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
-function create_levels_filter () {
-  function create_level (level) {
+function create_filter_dom (data) {
+  /*
+    ARGUMENTS
+        data: object that contains the following keys:
+        parent (reference to HTML-element): the HTML-element that is the parent of the created element
+        class (string): class-name is given to the created element
+        textContent (string): the name that the element contains
+
+      No control of arguments.
+
+    SIDE-EFFECTS
+      Creates a new dom-element with the tag "li".
+      Gives the new dom-element the class "selected"
+      Appends the new dom-element to the element referenced in data.parent
+      Sets the textcontent of the new dom-element to data.name
+      Sets the dataset.id to data.id;
+
+    RETURN VALUE
+      None
+  */  
     const dom = create_filter_element({
-      parent: document.querySelector("#level_filter > ul"),
-      class: "selected",
-      textContent: level.name,
-    });
-    dom.dataset.id = level.id;
-  }
-  array_each(LEVELS, create_level);
-}
-// Create Subjects Filter
-function create_subjects_filter () {
-  function create_subject (subject) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#subject_filter > ul"),
-      class: "selected",
-      textContent: subject.name,
-    });
-    dom.dataset.id = subject.id;
-  }
-  array_each(SUBJECTS, create_subject);
-}
-// Create Search Field
-function create_language_filter () {
-  function create_element (data) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#language_filter > ul"),
+      parent: document.querySelector(`#${data}_filter > ul`),
       class: "selected",
       textContent: data.name,
     });
     dom.dataset.id = data.id;
-  }
-  array_each(LANGUAGES, create_element);
 }
 
+array_each(LEVELS, create_level);
+array_each(LANGUAGES, create_element);
+array_each(SUBJECTS, create_subject);
+  
 
 // G / VG (see details in specification)
 // CODE according to specifications
