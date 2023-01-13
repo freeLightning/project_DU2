@@ -389,7 +389,7 @@ function update_programmes () {
       NO RETURN VALUE
 
   */
-
+/* 
   let children = document.querySelectorAll(".container div");
   for (const child of children) {
     child.remove();
@@ -407,6 +407,16 @@ function update_programmes () {
 
   array_each(programmes, create_programme);
 }
+ */
+
+let wrapper_programe_ul = document.querySelector("#programmes > ul ");
+wrapper_programe_ul.innerHTML = "";
+let number_of_programmes = read_filters();
+console.log(number_of_programmes);
+for (let i = 0; i < number_of_programmes.length; i++) {
+  create_programme(number_of_programmes[i]);
+}
+
 
 
 // G
