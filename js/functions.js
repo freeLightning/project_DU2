@@ -268,29 +268,117 @@ function create_programme (programme) {
     NO RETURN VALUE
 
   */  
+
+  const program_dom = document.querySelector("#programmes");
+  const container = program_dom.children[1];
+  container.classList.add("container");
+  const programme_name = programme.name;
   
-    // ALL objects.keys in the array
-  let i = 0;
-  while (i < 1) {
-    for (let key in PROGRAMMES) {
-      let heja = (key, PROGRAMMES[key]);
-      let allaProgramNycklar = [{}];
-      allaProgramNycklar.id = heja.id;
-      allaProgramNycklar.entryGrades = heja.entryGrades;
-      allaProgramNycklar.exchangeStudents = heja.exchangeStudents;
-      allaProgramNycklar.languageID = heja.languageID;
-      allaProgramNycklar.levelID = heja.levelID;
-      allaProgramNycklar.localStudents = heja.localStudents;
-      allaProgramNycklar.name = heja.name;
-      allaProgramNycklar.subjectID = heja.subjectID;
-      allaProgramNycklar.successRate = heja.successRate;
-      allaProgramNycklar.universityID = heja.universityID;
-          
-      document.body.innerHTML +=`<div>${heja}</div>`;   
+  /* 
+  --------   LEVELS --------
+    */
+  let programme_level = programme.levelID;
+  for (i = 0; i < LEVELS.length; i++){
+      if(programme_level === LEVELS[i].id ) {
+        programme_level = LEVELS[i].name; 
+    }
+  }
+
+    /* 
+  --------  SUBJECTS --------
+    */
+  let programme_subject = programme.subjectID;
+    for (i = 0; i < SUBJECTS.length; i++){
+      if(programme_subject === SUBJECTS[i].id ) {
+        programme_subject = SUBJECTS[i].name;
+    }
+  }
+
+  /* 
+  -------- LANGUAGES --------
+    */
+  let programme_language = programme.languageID;
+  for (i = 0; i < LANGUAGES.length; i++){
+      if(programme_language === LANGUAGES[i].id ) {
+        programme_language = LANGUAGES[i].name;
       }
-  } 
-  array_each(PROGRAMMES, create_programme);
+  }
+  
+  /* 
+  --------UNIVERSITIES --------
+    */
+  let programme_universityID=programme.universityID;
+  let programme_city = programme.universityID;
+  let programme_city_sun = programme.universityID;
+  let programme_country = programme.universityID;
+  for (i = 0; i < UNIVERSITIES.length; i++){
+      
+      if(programme_universityID === UNIVERSITIES[i].id ) {
+        programme_universityID = UNIVERSITIES[i].name;
+      }
+
+      if(programme_city === UNIVERSITIES[i].id) {
+          programme_city = UNIVERSITIES[i].cityID;
+      }
+
+      if(programme_city_sun === UNIVERSITIES[i].id) {
+          programme_city_sun = UNIVERSITIES[i].cityID;
+      }
+
+      if(programme_country === UNIVERSITIES[i].id) {
+          programme_country = UNIVERSITIES[i].cityID;
+      }
+  }
+
+    /* 
+  --------CITIES --------
+    */
+  for (i = 0; i < CITIES.length; i++){
+      if(programme_city === CITIES[i].id) {
+          programme_city = CITIES[i].name;
+      }       
+
+      if(programme_city_sun === CITIES[i].id) {
+          programme_city_sun = CITIES[i].sun;
+      }            
+
+      if(programme_country === CITIES[i].id){
+          programme_country = CITIES[ii].countryID;
+      }
+  }
+
+  /* 
+  -------- COUNTRIES --------
+    */
+  for (i = 0; i < COUNTRIES.length; i++){
+      if(programme_country === COUNTRIES[i].id) {
+          programme_country = COUNTRIES[i].name;
+      }
+  }
+    
+  const new_programme_dom = document.createElement("div");
+  const programme_div = document.createElement("div");
+  const programme_div2 = document.createElement("div");
+
+  programme_div.innerHTML = `
+  <p><b>${programme_name}</b>
+  ${programme_universityID}
+  ${programme_city}, ${programme_country}
+  ${programme_level}, ${programme_subject}, ${programme_language} 
+  </p>`
+
+  programme_div2.innerHTML = `
+  <p>${programme_city}, sun-index: ${programme_city_sun} (${percenter(programme_city_sun, 365)}%)
+  </p>`
+  
+  programme_div2.classList.add("bottom_programme");
+  new_programme_dom.classList.add("programmes");
+  container.appendChild(new_programme_dom);
+  new_programme_dom.appendChild(programme_div);
+  new_programme_dom.appendChild(programme_div2);
+  
 }
+  
 
 
 // G
