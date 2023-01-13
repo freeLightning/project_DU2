@@ -399,6 +399,22 @@ function update_programmes () {
 
   */
 
+  let children = document.querySelectorAll(".container div");
+  for (const child of children) {
+    child.remove();
+  } 
+
+  let programmes = read_filters();
+  if(programmes.length !== 0) {
+    let text = document.querySelector("#programmes > p");
+    text.innerHTML = "";
+  } 
+  else {
+    let text = document.querySelector("#programmes > p");
+    text.innerHTML = "Inga program uppfyller nuvarande filter.";
+  }
+
+  array_each(programmes, create_programme);
 }
 
 
