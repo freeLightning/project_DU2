@@ -232,9 +232,9 @@ function create_filter_dom (data) {
 }
 
 
-array_each(LEVELS, create_level);
-array_each(LANGUAGES, create_element);
-array_each(SUBJECTS, create_subject);
+array_each(LEVELS, create_filter_dom);
+array_each(LANGUAGES, create_filter_dom);
+array_each(SUBJECTS, create_filter_dom);
   
 
 
@@ -266,8 +266,6 @@ function create_programme (programme) {
   */  
   
     // ALL objects.keys in the array
-    
-function create_programme (object) {
   let i = 0;
   while (i < 1) {
     for (let key in PROGRAMMES) {
