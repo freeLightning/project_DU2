@@ -195,8 +195,6 @@ function create_programme (programme) {
     NO RETURN VALUE
 
   */  
-
-  function programme (object) {
   
     // ALLA object i arrayen inkl nycklar
     for (let key in PROGRAMMES) {
@@ -207,6 +205,7 @@ function create_programme (programme) {
       document.body.innerHTML +=`<div>${heja}</div>`;
     }
 }
+
 
 
 
