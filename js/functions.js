@@ -203,41 +203,59 @@ function create_countries_cities_filters () {
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
-function create_levels_filter () {
-  function create_level (level) {
+function create_filter_dom (data) {
     const dom = create_filter_element({
-      parent: document.querySelector("#level_filter > ul"),
-      class: "selected",
-      textContent: level.name,
-    });
-    dom.dataset.id = level.id;
-  }
-  array_each(LEVELS, create_level);
-}
-// Create Subjects Filter
-function create_subjects_filter () {
-  function create_subject (subject) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#subject_filter > ul"),
-      class: "selected",
-      textContent: subject.name,
-    });
-    dom.dataset.id = subject.id;
-  }
-  array_each(SUBJECTS, create_subject);
-}
-// Create Search Field
-function create_language_filter () {
-  function create_element (data) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#language_filter > ul"),
+      parent: document.querySelector(`#${data}_filter > ul`),
       class: "selected",
       textContent: data.name,
     });
     dom.dataset.id = data.id;
-  }
-  array_each(LANGUAGES, create_element);
 }
+
+array_each(LEVELS, create_level);
+array_each(LANGUAGES, create_element);
+array_each(SUBJECTS, create_subject);
+
+
+// Create Subjects Filter
+function create_subjects_filter () {
+function create_language_filter () {
+  function create_subject (subject) {
+  function create_element (data) {
+    const dom = create_filter_element({
+    const dom = create_filter_element({
+      parent: document.querySelector(`#${data}_filter > ul`),
+      parent: document.querySelector("#language_filter > ul"),
+      class: "selected",
+      class: "selected",
+      textContent: subject.name, 
+      textContent: data.name,
+    });
+    });
+    dom.dataset.id = subject.id;
+    dom.dataset.id = data.id;
+  }}
+
+}}
+// Create Search Field
+Abstracted the code in create_levels_filter/languages_filter/subject_filter
+  
+    
+      
+      
+     
+    
+    
+  
+
+
+
+
+
+
+
+
+
 
 
 // G / VG (see details in specification)
