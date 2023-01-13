@@ -204,6 +204,25 @@ function create_countries_cities_filters () {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 function create_filter_dom (data) {
+  /*
+    ARGUMENTS
+        data: object that contains the following keys:
+        parent (reference to HTML-element): the HTML-element that is the parent of the created element
+        class (string): class-name is given to the created element
+        textContent (string): the name that the element contains
+
+      No control of arguments.
+
+    SIDE-EFFECTS
+      Creates a new dom-element with the tag "li".
+      Gives the new dom-element the class "selected"
+      Appends the new dom-element to the element referenced in data.parent
+      Sets the textcontent of the new dom-element to data.name
+      Sets the dataset.id to data.id;
+
+    RETURN VALUE
+      None
+  */  
     const dom = create_filter_element({
       parent: document.querySelector(`#${data}_filter > ul`),
       class: "selected",
@@ -215,48 +234,7 @@ function create_filter_dom (data) {
 array_each(LEVELS, create_level);
 array_each(LANGUAGES, create_element);
 array_each(SUBJECTS, create_subject);
-
-
-// Create Subjects Filter
-function create_subjects_filter () {
-function create_language_filter () {
-  function create_subject (subject) {
-  function create_element (data) {
-    const dom = create_filter_element({
-    const dom = create_filter_element({
-      parent: document.querySelector(`#${data}_filter > ul`),
-      parent: document.querySelector("#language_filter > ul"),
-      class: "selected",
-      class: "selected",
-      textContent: subject.name, 
-      textContent: data.name,
-    });
-    });
-    dom.dataset.id = subject.id;
-    dom.dataset.id = data.id;
-  }}
-
-}}
-// Create Search Field
-Abstracted the code in create_levels_filter/languages_filter/subject_filter
   
-    
-      
-      
-     
-    
-    
-  
-
-
-
-
-
-
-
-
-
-
 
 // G / VG (see details in specification)
 // CODE according to specifications
